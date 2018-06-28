@@ -1,17 +1,7 @@
 # Zalando Workshop
 
-This is the base project for the workshop. The base projects can be found in the following branches:
+__Provider 1:__ Add a CartProvider.
 
-Provider:
-* p1
-* p2
-* p3
-
-Redux-Sagas:
-* rs1
-* rs2
-* rs3
-
-## Project structure
-* Components
-* App
+## Project structure:
+* components
+* providers
