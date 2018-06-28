@@ -7,7 +7,7 @@ const ShoppingCartList = ({ articles }) => (
       {
         articles.map(article => (
           <li key={article.id} className="list-group-item">
-            {article.name}
+            {article.name} - {article.stock}
             <button type="button" className="btn btn-primary float-right">Add</button>
           </li>
         ))
