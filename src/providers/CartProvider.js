@@ -9,8 +9,8 @@ export default class CartProvider extends React.Component {
     super(props);
 
     /* eslint-disable */
-    this.addArticle = this.addArticle.bind(this),
-    this.removeArticle = this.removeArticle.bind(this),
+    this.addItem = this.addItem.bind(this),
+    this.removeItem = this.removeItem.bind(this),
     this.getCartItems = this.getCartItems.bind(this),
     /* eslint-enable */
 
@@ -45,7 +45,7 @@ export default class CartProvider extends React.Component {
     return Object.keys(this.state.items).map(id => this.state.items[id]);
   }
 
-  addArticle(item) {
+  addItem(item) {
     this.setState({
       items: {
         ...this.state.items,
@@ -57,7 +57,7 @@ export default class CartProvider extends React.Component {
     });
   }
 
-  removeArticle(articleId) {
+  removeItem(articleId) {
     const newState = {
       ...this.state,
       items: {
@@ -72,8 +72,8 @@ export default class CartProvider extends React.Component {
   render() {
     const value = {
       ...this.state,
-      addItem: this.addArticle,
-      removeItem: this.removeArticle,
+      addItem: this.addItem,
+      removeItem: this.removeItem,
       getCartItems: this.getCartItems,
     };
 
