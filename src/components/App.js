@@ -15,13 +15,19 @@ const App = () => (
     <div className="row">
 
       <ArticleContext.Consumer>
-        {articles => <ShoppingCartList articles={articles} />}
+        {articles => (
+            <CartContext.Consumer>
+              {({ getCartItems, addItem }) => (
+                <ShoppingCartList articles={articles} items={getCartItems()} addItem={addItem} />
+              )}
+            </CartContext.Consumer>
+          )}
       </ArticleContext.Consumer>
 
       <CartContext.Consumer>
         {({ getCartItems }) => (<ShoppingCartBadge items={getCartItems()} />)}
       </CartContext.Consumer>
-      
+
     </div>
     <div className="row">
       <div className="col-md-12">
@@ -32,7 +38,6 @@ const App = () => (
       <CartContext.Consumer>
         {({ getCartItems, removeItem }) => (<ShoppingCartWidget items={getCartItems()} removeItem={removeItem} />)}
       </CartContext.Consumer>
-      
     </div>
   </div>
 );

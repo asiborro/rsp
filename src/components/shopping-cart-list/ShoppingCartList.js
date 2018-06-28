@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShoppingCartList = ({ articles }) => (
+const ShoppingCartList = ({ articles, addItem }) => (
   <div className="col-md-6">
     <ul className="list-group">
       {
@@ -8,12 +8,10 @@ const ShoppingCartList = ({ articles }) => (
           <li key={article.id} className="list-group-item">
             {article.name}
             <button
-              // onClick={() => props.context.addArticle(article)}
+              onClick={() => addItem(article)}
               className="btn btn-primary float-right"
               type="button"
-            >
-              Add
-              </button>
+            >Add</button>
           </li>
         ))
       }

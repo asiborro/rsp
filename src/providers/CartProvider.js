@@ -15,29 +15,7 @@ export default class CartProvider extends React.Component {
     /* eslint-enable */
 
     this.state = {
-      items: {
-        1: {
-          id: 1,
-          name: 'Article 1',
-          description: 'Description 1',
-          amount: 1,
-          price: 2.99
-        },
-        2: {
-          id: 2,
-          name: 'Article 2',
-          description: 'Description 2',
-          amount: 1,
-          price: 9.99
-        },
-        3: {
-          id: 3,
-          name: 'Article 2',
-          description: 'Description 2',
-          amount: 1,
-          price: 18.99
-        },
-      }
+      items: {}
     };
   }
 
@@ -46,14 +24,11 @@ export default class CartProvider extends React.Component {
   }
 
   addItem(item) {
+    const newItems = { ...this.state.items };
+    const amount = typeof newItems[item.id] !== 'undefined' ? newItems[item.id].amount + 1 : 1;
+    newItems[item.id] = { ...item, amount };
     this.setState({
-      items: {
-        ...this.state.items,
-        [item.id]: {
-          ...this.state.items[item.id],
-          amount: this.state.items[item.id] ? this.state.items[item.id].amount + 1 : 0
-        }
-      }
+      items: newItems
     });
   }
 
