@@ -72,8 +72,8 @@ export default class CartProvider extends React.Component {
   render() {
     const value = {
       ...this.state,
-      addArticle: this.addArticle,
-      removeArticle: this.removeArticle,
+      addItem: this.addArticle,
+      removeItem: this.removeArticle,
       getCartItems: this.getCartItems,
     };
 

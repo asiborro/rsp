@@ -2,6 +2,7 @@ import React from 'react';
 import ShoppingCartList from './shopping-cart-list/ShoppingCartList';
 import ShoppingCartBadge from './shopping-cart-badge/ShoppingCartBadge';
 import ShoppingCartWidget from './shopping-cart-widget/ShoppingCartWidget';
+import { ArticleContext } from '../providers/ArticleProvider';
 
 const App = () => (
   <div className="container">
@@ -11,7 +12,11 @@ const App = () => (
       </div>
     </div>
     <div className="row">
-      <ShoppingCartList />
+      <ArticleContext.Consumer>
+        {
+          (articles) => <ShoppingCartList articles={articles} />
+        }
+      </ArticleContext.Consumer>
       <ShoppingCartBadge />
     </div>
     <div className="row">

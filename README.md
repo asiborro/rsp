@@ -1,6 +1,6 @@
 # Zalando Workshop
 
-__Provider 2:__ Add Consumers.
+__Provider 3:__ Add multiple Consumers.
 
 ## Project structure:
 * components
