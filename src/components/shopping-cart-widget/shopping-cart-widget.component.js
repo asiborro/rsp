@@ -23,7 +23,7 @@ const ShoppingCartWidget = props => (
               <td className="col-sm-8 col-md-6">
                 <div className="media">
                   <div className="media-body">
-                    <h4 className="media-heading">{item.name}</h4>
+                    <h4 className="media-heading">{item.article.name}</h4>
                   </div>
                 </div>
               </td>
@@ -46,7 +46,7 @@ const ShoppingCartWidget = props => (
             <h3>Total</h3>
           </td>
           <td className="text-right">
-            <h3>0€</h3>
+            <h3>{props.items.reduce((acc, item) => acc + item.amount * item.article.price, 0)}€</h3>
           </td>
         </tr>
       </tbody>
