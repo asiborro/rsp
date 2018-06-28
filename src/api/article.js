@@ -1,6 +1,6 @@
 const ARTICLES_ENDPOINT = 'http://localhost:8089/articles';
 
-const apiFetchArticles = () =>
+const fetchArticles = () =>
   fetch(
     ARTICLES_ENDPOINT,
     {
@@ -11,4 +11,4 @@ const apiFetchArticles = () =>
     .then(res => res)
     .catch(error => ({ error }));
 
-export default apiFetchArticles;
+export default fetchArticles;
