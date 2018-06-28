@@ -16,7 +16,7 @@ Redux-Sagas:
 * rs2: Connect the UI with the store
 * rs3: Implementation example
 
-###Quick start
+## Quick start
 Install Node.js with a version above or equal to 8:
 ```
 node --version
