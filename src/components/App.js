@@ -16,12 +16,12 @@ const App = () => (
 
       <ArticleContext.Consumer>
         {articles => (
-            <CartContext.Consumer>
-              {({ getCartItems, addItem }) => (
-                <ShoppingCartList articles={articles} items={getCartItems()} addItem={addItem} />
-              )}
-            </CartContext.Consumer>
-          )}
+          <CartContext.Consumer>
+            {({ getCartItems, addItem }) => (
+              <ShoppingCartList articles={articles} items={getCartItems()} addItem={addItem} />
+            )}
+          </CartContext.Consumer>
+        )}
       </ArticleContext.Consumer>
 
       <CartContext.Consumer>
@@ -36,7 +36,8 @@ const App = () => (
     </div>
     <div className="row">
       <CartContext.Consumer>
-        {({ getCartItems, removeItem }) => (<ShoppingCartWidget items={getCartItems()} removeItem={removeItem} />)}
+        {({ getCartItems, removeItem }) =>
+          (<ShoppingCartWidget items={getCartItems()} removeItem={removeItem} />)}
       </CartContext.Consumer>
     </div>
   </div>

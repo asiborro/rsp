@@ -11,7 +11,9 @@ const ShoppingCartList = ({ articles, addItem }) => (
               onClick={() => addItem(article)}
               className="btn btn-primary float-right"
               type="button"
-            >Add</button>
+            >
+              Add
+            </button>
           </li>
         ))
       }
