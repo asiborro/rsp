@@ -1,0 +1,50 @@
+{
+  "name": "rsp",
+  "version": "1.0.0",
+  "description": "Landing jobs Redux-Saga Provider workshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-serve --config ./webpack.config.dev.js --open",
+    "start:server": "mock-api-server start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/asiborro/rsp.git"
+  },
+  "author": "Alexandre Siborro <alexandre.siborro@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asiborro/rsp/issues"
+  },
+  "homepage": "https://github.com/asiborro/rsp#readme",
+  "dependencies": {
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-redux": "5.0.7",
+    "redux": "4.0.0",
+    "redux-saga": "0.16.0",
+    "reselect": "3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0-beta.51",
+    "@babel/plugin-transform-react-jsx": "7.0.0-beta.51",
+    "@babel/plugin-transform-runtime": "7.0.0-beta.51",
+    "@babel/preset-env": "7.0.0-beta.51",
+    "@babel/preset-react": "7.0.0-beta.51",
+    "@babel/runtime": "7.0.0-beta.51",
+    "@local/mock-api-server": "file:local_modules/mock-api-server",
+    "babel-loader": "8.0.0-beta.3",
+    "clean-webpack-plugin": "0.1.19",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-flowtype": "2.49.3",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.9.1",
+    "html-webpack-plugin": "3.2.0",
+    "redux-logger": "3.0.6",
+    "webpack": "4.12.0",
+    "webpack-cli": "3.0.8",
+    "webpack-serve": "1.0.4"
+  }
+}

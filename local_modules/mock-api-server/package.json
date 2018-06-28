@@ -1,0 +1,25 @@
+{
+  "name": "@local/mock-api-server",
+  "version": "1.0.0",
+  "description": "Landing jobs workshop mock API server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "bin": {
+    "mock-api-server": "./bin/mock-api-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/asiborro/redux-cart.git"
+  },
+  "author": "Alexandre Siborro <alexandre.siborro@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asiborro/redux-cart/issues"
+  },
+  "homepage": "https://github.com/asiborro/redux-cart#readme",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}

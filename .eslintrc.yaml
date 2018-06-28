@@ -1,0 +1,34 @@
+---
+extends:
+  - airbnb
+
+env:
+  browser: true
+  node: true
+
+rules:
+  react/prop-types: 0
+  react/no-unused-prop-types: 0
+  react/jsx-filename-extension:
+    - 1
+    - extensions:
+      - js
+      - jsx
+  jsx-a11y/href-no-hash: 0
+  jsx-a11y/anchor-is-valid: 0
+  comma-dangle: 0
+  import/no-named-as-default: 0
+  function-paren-newline: 0
+  no-mixed-operators: 0
+  no-inline-comments: 2
+  consistent-return: 2
+  no-underscore-dangle: 0
+  no-useless-return: 2
+  no-undefined: 2
+  object-property-newline: 2
+  no-warning-comments:
+      - 1
+      - terms:
+          - TODO
+          - FIXME
+        location: start

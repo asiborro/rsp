@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    ["@babel/plugin-transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "@babel/runtime"
+    }]
+  ]
+}
