@@ -1,6 +1,6 @@
 # Zalando Workshop
 
-This is the base for the workshop. The objective of this workshop is to compare state management with redux-sagas versus the new Context API.
+This is the base for the workshop. The objective of this workshop is to compare state management with _redux-(sagas)_ versus the new _Context API_.
 
 Each project has multiple steps that can be found in the following branches:
 
