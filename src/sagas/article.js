@@ -1,10 +1,11 @@
-import { all, call, put } from 'redux-saga/effects';
+import { all, call } from 'redux-saga/effects';
 import { normalize } from 'normalizr';
 import { articleResponseSchema } from '../schema/article';
 
 import * as articleActions from '../actions/article';
 
 const ARTICLES_ENDPOINT = 'http://localhost:8089/articles';
+
 const ARTICLE = {
   id: 3,
   name: 'Article 3',
@@ -23,19 +24,9 @@ const apiFetchArticles = () => fetch(
   .then(res => res)
   .catch(error => ({ error }));
 
-function* articleFetchSaga() {
-  const response = yield call(apiFetchArticles);
+function* articleFetchSaga() {}
 
-  if (typeof response.items !== 'undefined') {
-    yield put(articleActions.loadArticles(
-      normalize(response, articleResponseSchema)
-    ));
-  }
-}
-
-function* articlePopulateSaga() {
-  yield put(articleActions.addArticle(ARTICLE));
-}
+function* articlePopulateSaga() {}
 
 export default function* () {
   yield all([
