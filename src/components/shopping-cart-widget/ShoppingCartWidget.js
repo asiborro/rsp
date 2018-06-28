@@ -42,7 +42,7 @@ const ShoppingCartWidget = ({ items, removeItem }) => (
             <h3>Total</h3>
           </td>
           <td className="text-right">
-            <h3>0€</h3>
+            <h3>{items.reduce((acc, item) => acc + item.amount * item.price, 0).toFixed(2)}€</h3>
           </td>
         </tr>
       </tbody>
