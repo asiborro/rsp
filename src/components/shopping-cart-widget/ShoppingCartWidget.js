@@ -1,4 +1,5 @@
 import React from 'react';
+import CartContext from '../../providers/CartProvider';
 
 const ShoppingCartWidget = () => (
   <div className="col-md-12">
@@ -13,23 +14,29 @@ const ShoppingCartWidget = () => (
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className="col-sm-8 col-md-6">
-            <div className="media">
-              <div className="media-body">
-                <h4 className="media-heading">Some article name</h4>
-              </div>
-            </div>
-          </td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0</strong></td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0€</strong></td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0€</strong></td>
-          <td className="col-sm-1 col-md-1">
-            <button type="button" className="btn btn-danger">
-              Remove
-            </button>
-          </td>
-        </tr>
+        <CartContext.Consumer>
+          {
+            ({ items, removeArticle }) => items.map(article => (
+              <tr>
+                <td className="col-sm-8 col-md-6">
+                  <div className="media">
+                    <div className="media-body">
+                      <h4 className="media-heading">{item.name}</h4>
+                    </div>
+                  </div>
+                </td>
+                <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount}</strong></td>
+                <td className="col-sm-1 col-md-1 text-right"><strong>{(item.price).toFixed(2)}€</strong></td>
+                <td className="col-sm-1 col-md-1 text-right"><strong>{(item.amount * item.price).toFixed(2)}€</strong></td>
+                <td className="col-sm-1 col-md-1">
+                  <button type="button" className="btn btn-danger" onClick={() => removeArticle(item.id)}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))
+          }
+        </CartContext.Consumer>
         <tr>
           <td />
           <td />
