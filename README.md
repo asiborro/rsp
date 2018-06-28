@@ -10,10 +10,13 @@ Provider:
 * p3: Implementation example
 
 Redux-Sagas:
-* rs1
-* rs2
-* rs3
+* rs1: Implement the _Sagas_ for fetching the Articles
+* rs2: Connect the UI with the store
+* rs3: Implementation example
 
 ## Project structure
 * Components
-* App
+* Reducers
+* Actions
+* Sagas
+* Store

@@ -1,7 +1,7 @@
 import React from 'react';
-import ShoppingCartList from './shopping-cart-list/ShoppingCartList';
-import ShoppingCartBadge from './shopping-cart-badge/ShoppingCartBadge';
-import ShoppingCartWidget from './shopping-cart-widget/ShoppingCartWidget';
+import ShoppingCartList from './shopping-cart-list/shopping-cart-list.component';
+import ShoppingCartBadge from './shopping-cart-badge/shopping-cart-badge.component';
+import ShoppingCartWidget from './shopping-cart-widget/shopping-cart-widget.component';
 
 const App = () => (
   <div className="container">
