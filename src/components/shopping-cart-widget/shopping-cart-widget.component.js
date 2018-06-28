@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const ShoppingCartWidget = () => (
+import { allItemsSelector } from '../../reducers/cart';
+
+const ShoppingCartWidget = props => (
   <div className="col-md-12">
     <table className="table table-hover">
       <thead>
@@ -13,23 +16,27 @@ const ShoppingCartWidget = () => (
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className="col-sm-8 col-md-6">
-            <div className="media">
-              <div className="media-body">
-                <h4 className="media-heading">Some article name</h4>
-              </div>
-            </div>
-          </td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0</strong></td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0€</strong></td>
-          <td className="col-sm-1 col-md-1 text-right"><strong>0€</strong></td>
-          <td className="col-sm-1 col-md-1">
-            <button type="button" className="btn btn-danger">
-              Remove
-            </button>
-          </td>
-        </tr>
+        {
+          props.items.map(item => (
+            <tr key={item.id}>
+              <td className="col-sm-8 col-md-6">
+                <div className="media">
+                  <div className="media-body">
+                    <h4 className="media-heading">{item.name}</h4>
+                  </div>
+                </div>
+              </td>
+              <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount}</strong></td>
+              <td className="col-sm-1 col-md-1 text-right"><strong>{item.article.price}€</strong></td>
+              <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount * item.article.price}€</strong></td>
+              <td className="col-sm-1 col-md-1">
+                <button type="button" className="btn btn-danger">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          ))
+        }
         <tr>
           <td />
           <td />
@@ -46,4 +53,8 @@ const ShoppingCartWidget = () => (
   </div>
 );
 
-export default ShoppingCartWidget;
+const mapStateToProps = state => ({
+  items: allItemsSelector(state)
+});
+
+export default connect(mapStateToProps)(ShoppingCartWidget);
