@@ -33,7 +33,7 @@ Start the mock server by running on the root of the project:
 ```
 npm run start:server
 ```
-The mock API should be available on t[http://localhost:3000](http://localhost:8089).
+The mock API should be available on t[http://localhost:8090](http://localhost:8089).
 ```
 npm run start
 ```
