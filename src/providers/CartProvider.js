@@ -15,7 +15,7 @@ export default class CartProvider extends React.Component {
     /* eslint-enable */
 
     this.state = {
-      articles: {
+      items: {
         1: {
           id: 1,
           name: 'Article 1',
@@ -42,16 +42,16 @@ export default class CartProvider extends React.Component {
   }
 
   getCartItems() {
-    return Object.keys(this.state.articles).map(id => this.state.articles[id]);
+    return Object.keys(this.state.items).map(id => this.state.items[id]);
   }
 
   addArticle(item) {
     this.setState({
-      articles: {
-        ...this.state.articles,
+      items: {
+        ...this.state.items,
         [item.id]: {
-          ...this.state.articles[item.id],
-          amount: this.state.articles[item.id] ? this.state.articles[item.id].amount + 1 : 0
+          ...this.state.items[item.id],
+          amount: this.state.items[item.id] ? this.state.items[item.id].amount + 1 : 0
         }
       }
     });
@@ -60,11 +60,11 @@ export default class CartProvider extends React.Component {
   removeArticle(articleId) {
     const newState = {
       ...this.state,
-      articles: {
-        ...this.state.articles
+      items: {
+        ...this.state.items
       }
     };
-    delete newState.articles[articleId];
+    delete newState.items[articleId];
 
     this.setState({ ...newState });
   }
