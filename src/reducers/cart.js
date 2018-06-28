@@ -9,9 +9,15 @@ export default function (state = initialState, action) {
       [action.id]: typeof state[action.id] !== 'undefined' ? state[action.id] + 1 : 1
     };
   } else if (action.type === cartActions.REMOVE_ITEM) {
-    const newState = { ...state };
-    delete newState[action.id];
-    return newState;
+    if (state[action.id] === 1) {
+      const newState = { ...state };
+      delete newState[action.id];
+      return newState;
+    }
+    return {
+      ...state,
+      [action.id]: state[action.id] - 1
+    };
   }
   return state;
 }
