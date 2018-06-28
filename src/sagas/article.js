@@ -1,6 +1,7 @@
-import { call, put } from 'redux-saga/effects';
+import { all, call, put, takeEvery } from 'redux-saga/effects';
 import fetchArticles from '../api/article';
 import * as articleActions from '../actions/article';
+import * as cartActions from '../actions/cart';
 
 /* Article Entity
  *
@@ -13,12 +14,26 @@ import * as articleActions from '../actions/article';
  * };
  */
 
-// TODO: fetch all articles and publish them to the store
-// eslint-disable-next-line no-empty-function
-export default function* () {
+function* fetchArticlesSaga() {
   const result = yield call(fetchArticles);
 
   if (result.items) {
     yield put(articleActions.loadArticles(result.items));
   }
+}
+
+function* updateArticleStockSaga(inc, action) {
+  if (inc) {
+    yield put(articleActions.incStock(action.id));
+  } else {
+    yield put(articleActions.decStock(action.id));
+  }
+}
+
+export default function* () {
+  yield all([
+    call(fetchArticlesSaga),
+    takeEvery(cartActions.REMOVE_ITEM, updateArticleStockSaga, true),
+    takeEvery(cartActions.ADD_ITEM, updateArticleStockSaga, false)
+  ]);
 }
