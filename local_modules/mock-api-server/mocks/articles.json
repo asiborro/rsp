@@ -18,8 +18,15 @@
       "id": 3,
       "name": "Article 3",
       "description": "Description 3",
-      "stock": 12,
+      "stock": 32,
       "price": 19.99
+    },
+    {
+      "id": 4,
+      "name": "Article 4",
+      "description": "Description 4",
+      "stock": 2,
+      "price": 199.99
     }
   ]   
 }
