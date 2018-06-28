@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { allItemsSelector } from '../../reducers/cart';
+import { removeItem } from '../../actions/cart';
 
 const ShoppingCartWidget = props => (
   <div className="col-md-12">
@@ -18,7 +19,7 @@ const ShoppingCartWidget = props => (
       <tbody>
         {
           props.items.map(item => (
-            <tr key={item.id}>
+            <tr key={item.article.id}>
               <td className="col-sm-8 col-md-6">
                 <div className="media">
                   <div className="media-body">
@@ -30,7 +31,7 @@ const ShoppingCartWidget = props => (
               <td className="col-sm-1 col-md-1 text-right"><strong>{item.article.price}€</strong></td>
               <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount * item.article.price}€</strong></td>
               <td className="col-sm-1 col-md-1">
-                <button type="button" className="btn btn-danger">
+                <button type="button" className="btn btn-danger" onClick={() => props.removeItem(item.article.id)}>
                   Remove
                 </button>
               </td>
@@ -57,4 +58,4 @@ const mapStateToProps = state => ({
   items: allItemsSelector(state)
 });
 
-export default connect(mapStateToProps)(ShoppingCartWidget);
+export default connect(mapStateToProps, { removeItem })(ShoppingCartWidget);
