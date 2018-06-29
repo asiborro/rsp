@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/asiborro/rsp#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "normalizr": "^3.2.4",
     "react": "16.3.2",
     "react-dom": "16.3.2",
