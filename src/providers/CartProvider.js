@@ -12,6 +12,8 @@ export default class CartProvider extends React.Component {
     this.addItem = this.addItem.bind(this),
     this.removeItem = this.removeItem.bind(this),
     this.getCartItems = this.getCartItems.bind(this),
+    this.getCartAmount = this.getCartAmount.bind(this),
+    this.getCartPrice = this.getCartPrice.bind(this),
     /* eslint-enable */
 
     this.state = {
@@ -21,6 +23,14 @@ export default class CartProvider extends React.Component {
 
   getCartItems() {
     return Object.keys(this.state.items).map(id => this.state.items[id]);
+  }
+
+  getCartAmount() {
+    return this.getCartItems().reduce((acc, item) => acc + item.amount, 0);
+  }
+
+  getCartPrice() {
+    return this.getCartItems().reduce((acc, item) => acc + item.amount * item.price, 0);
   }
 
   addItem(item) {
@@ -50,6 +60,8 @@ export default class CartProvider extends React.Component {
       addItem: this.addItem,
       removeItem: this.removeItem,
       getCartItems: this.getCartItems,
+      getCartPrice: this.getCartPrice,
+      getCartAmount: this.getCartAmount
     };
 
     return (

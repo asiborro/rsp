@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShoppingCartList = ({ articles, addItem }) => (
+const ShoppingCartList = ({ articles, cartService }) => (
   <div className="col-md-6">
     <ul className="list-group">
       {
@@ -8,7 +8,7 @@ const ShoppingCartList = ({ articles, addItem }) => (
           <li key={article.id} className="list-group-item">
             {article.name}
             <button
-              onClick={() => addItem(article)}
+              onClick={() => cartService.addItem(article)}
               className="btn btn-primary float-right"
               type="button"
             >

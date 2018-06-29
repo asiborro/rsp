@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShoppingCartWidget = ({ items, removeItem }) => (
+const ShoppingCartWidget = ({ cartService }) => (
   <div className="col-md-12">
     <table className="table table-hover">
       <thead>
@@ -14,7 +14,7 @@ const ShoppingCartWidget = ({ items, removeItem }) => (
       </thead>
       <tbody>
         {
-          items.map(item => (
+          cartService.getCartItems().map(item => (
             <tr key={item.id}>
               <td className="col-sm-8 col-md-6">
                 <div className="media">
@@ -24,10 +24,10 @@ const ShoppingCartWidget = ({ items, removeItem }) => (
                 </div>
               </td>
               <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount}</strong></td>
-              <td className="col-sm-1 col-md-1 text-right"><strong>{(item.price).toFixed(2)}€</strong></td>
-              <td className="col-sm-1 col-md-1 text-right"><strong>{(item.amount * item.price).toFixed(2)}€</strong></td>
+              <td className="col-sm-1 col-md-1 text-right"><strong>{item.price}€</strong></td>
+              <td className="col-sm-1 col-md-1 text-right"><strong>{item.amount * item.price}€</strong></td>
               <td className="col-sm-1 col-md-1">
-                <button type="button" className="btn btn-danger" onClick={() => removeItem(item.id)}>
+                <button type="button" className="btn btn-danger" onClick={() => cartService.removeItem(item.id)}>
                   Remove
                 </button>
               </td>
@@ -42,7 +42,7 @@ const ShoppingCartWidget = ({ items, removeItem }) => (
             <h3>Total</h3>
           </td>
           <td className="text-right">
-            <h3>{items.reduce((acc, item) => acc + item.amount * item.price, 0).toFixed(2)}€</h3>
+            <h3>{cartService.getCartPrice()}€</h3>
           </td>
         </tr>
       </tbody>
