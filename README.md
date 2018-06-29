@@ -12,9 +12,10 @@ Provider:
 * p3: Implementation example
 
 Redux-Sagas:
-* rs1: Implement the _Sagas_ for fetching the Articles
-* rs2: Connect the UI with the store
-* rs3: Implementation example
+* rs11: Asynchronous flow with sagas to fetch articles
+* rs12: Cart operations (add & remove)
+* rs13: Display cart badge with total amount of items
+* rs14: Stock flow with sagas
 
 ## Quick start
 Install Node.js with a version above or equal to 8:
