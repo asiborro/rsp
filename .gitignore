@@ -4,3 +4,10 @@ node_modules
 # IntelliJ
 .idea/
 *.iml
+package-lock.json
+
+# VS Code
+.vscode/
+
+# Misc
+.DS_Store
